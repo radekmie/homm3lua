@@ -1,3 +1,9 @@
+## homm3lua
+
+Lua API for [homm3tools](https://github.com/potmdehex/homm3tools).
+
+### Quick Start
+
 ```shell
 $ make
 $ make doc # requires ldoc
