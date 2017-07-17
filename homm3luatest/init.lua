@@ -28,55 +28,16 @@ instance:terrain(function (x, y, z)
         return homm3lua.TERRAIN_ROCK
     end
 
-    -- NOTE: It seems that rivers and/or roads are crashing the game.
-    -- -- Few notes about handling roads and rivers:
-    -- --   * horizontal rivers have to add N and they appear at the top    of the grid cell
-    -- --   * horizontal roads  have to add N and they appear at the bottom of the grid cell
-    -- --   * other river/road types are achievable using NE/NW and SE/SW instead of N and S
-    -- local NW = 1   -- 0x01
-    -- local N  = 2   -- 0x02
-    -- local NE = 4   -- 0x04
-    -- local W  = 8   -- 0x08
-    -- local E  = 16  -- 0x10
-    -- local SW = 32  -- 0x20
-    -- local S  = 64  -- 0x40
-    -- local SE = 128 -- 0x80
+    -- Roads (same order like in the editor)
+    if x == 32 and y >= 10 and y <= 16 then return nil, 1 end
+    if x == 34 and y >= 10 and y <= 16 then return nil, 2 end
+    if x == 36 and y >= 10 and y <= 16 then return nil, 3 end
 
-    -- if x == 33 and y == 5 then return nil,     S end
-    -- if x == 33 and y == 6 then return nil, N | S end
-    -- if x == 33 and y == 7 then return nil, N | S end
-    -- if x == 33 and y == 8 then return nil, N | S end
-    -- if x == 33 and y == 9 then return nil, N     end
-
-    -- if x == 31 and y == 5 then return nil, nil,     S end
-    -- if x == 31 and y == 6 then return nil, nil, N | S end
-    -- if x == 31 and y == 7 then return nil, nil, N | S end
-    -- if x == 31 and y == 8 then return nil, nil, N | S end
-    -- if x == 31 and y == 9 then return nil, nil, N     end
-
-    -- if x == 32 and y == 5 then return nil, nil,      SW end
-    -- if x == 32 and y == 6 then return nil, nil, NW | SW end
-    -- if x == 32 and y == 7 then return nil, nil, NW | SW end
-    -- if x == 32 and y == 8 then return nil, nil, NW | SW end
-    -- if x == 32 and y == 9 then return nil, nil, NW      end
-
-    -- if x == 34 and y == 5 then return nil, nil,      SE end
-    -- if x == 34 and y == 6 then return nil, nil, NE | SE end
-    -- if x == 34 and y == 7 then return nil, nil, NE | SE end
-    -- if x == 34 and y == 8 then return nil, nil, NE | SE end
-    -- if x == 34 and y == 9 then return nil, nil, NE      end
-
-    -- if x == 30 and y == 13 then return nil, N |     E end
-    -- if x == 31 and y == 13 then return nil, N | W | E end
-    -- if x == 32 and y == 13 then return nil, N | W | E end
-    -- if x == 33 and y == 13 then return nil, N | W | E end
-    -- if x == 34 and y == 13 then return nil, N | W     end
-
-    -- if x == 30 and y == 12 then return nil, nil, N |     E end
-    -- if x == 31 and y == 12 then return nil, nil, N | W | E end
-    -- if x == 32 and y == 12 then return nil, nil, N | W | E end
-    -- if x == 33 and y == 12 then return nil, nil, N | W | E end
-    -- if x == 34 and y == 12 then return nil, nil, N | W     end
+    -- Rivers (same order like in the editor)
+    if x == 38 and y >= 10 and y <= 16 then return nil, nil, 1 end
+    if x == 40 and y >= 10 and y <= 16 then return nil, nil, 2 end
+    if x == 42 and y >= 10 and y <= 16 then return nil, nil, 3 end
+    if x == 44 and y >= 10 and y <= 16 then return nil, nil, 4 end
 
     -- Playground
     if x < 40 and y < 20 then
