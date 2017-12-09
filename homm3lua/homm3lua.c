@@ -259,6 +259,27 @@ static int resource (lua_State *L) {
   return 0;
 }
 
+/// Place a sign.
+// @function    sign
+// @tparam      string          message     Sign message.
+// @tparam      homm3lua_xyz    xyz         Position in {x, y, z} format.
+static int sign (lua_State *L) {
+  h3mlib_ctx_t *h3m = (h3mlib_ctx_t *) luaL_checkudata(L, 1, "homm3lua");
+
+  size_t size;
+  const char *message = luaL_checklstring(L, 2, &size);
+  const h3mlua_xyz xyz = h3mlua_check_xyz(L, 3);
+
+  int object = 0;
+
+  if (h3m_object_add(*h3m, "Sign", xyz.x, xyz.y, xyz.z, &object))
+    return luaL_error(L, "h3m_object_add");
+  if (h3m_object_set_message(*h3m, object, message, (uint32_t)size))
+    return luaL_error(L, "h3m_object_set_message");
+
+  return 0;
+}
+
 /// Draws terrain.
 // @function    terrain
 // @tparam      integer|function    terrain    Either a constant or a generating function of signature (homm3lua_xyz) -> (terrain?, road?, river?). See TERRAIN_*
@@ -438,6 +459,7 @@ static const struct luaL_Reg h3mlua_instance[] = {
   {"obstacle", obstacle},
   {"player", player},
   {"resource", resource},
+  {"sign", sign},
   {"terrain", terrain},
   {"text", text},
   {"town", town},

@@ -19,6 +19,31 @@ int h3m_object_set_does_not_grow (h3mlib_ctx_t ctx, int od_index, int does_not_g
   return 0;
 }
 
+int h3m_object_set_message (h3mlib_ctx_t ctx, int od_index, const char *message, uint32_t size) {
+  struct  H3M_OD_ENTRY  *h3m_od_entry = &ctx-> h3m.od.entries[od_index];
+  struct META_OD_ENTRY *meta_od_entry = &ctx->meta.od_entries[od_index];
+
+  if (META_OBJECT_SIGN != meta_od_entry->oa_type) {
+      return 1;
+  }
+
+  struct H3M_OD_BODY_DYNAMIC_MESSAGE_BEARER *body = (struct H3M_OD_BODY_DYNAMIC_MESSAGE_BEARER *)h3m_od_entry->body;
+
+  body->mesg_size = size + 1;
+  body->mesg = (uint8_t *)strdup(message);
+  body->unknown1[0] = 0;
+  body->unknown1[1] = 0;
+  body->unknown1[2] = 0;
+  body->unknown1[3] = 0;
+
+  meta_od_entry->binary_compatible = 0;
+  meta_od_entry->body_size = sizeof(*body);
+
+  META_OBJECT_PUSH_PTR(meta_od_entry->dyn_pointers, body, body->mesg, body->mesg_size, 0)
+
+  return 0;
+}
+
 int h3m_object_set_never_flees (h3mlib_ctx_t ctx, int od_index, int never_flees) {
   struct  H3M_OD_ENTRY  *h3m_od_entry = &ctx-> h3m.od.entries[od_index];
   struct META_OD_ENTRY *meta_od_entry = &ctx->meta.od_entries[od_index];
