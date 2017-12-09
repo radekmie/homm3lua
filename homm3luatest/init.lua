@@ -119,9 +119,9 @@ instance:town(homm3lua.TOWN_FORTRESS,   {x=39, y=3, z=0}, homm3lua.PLAYER_8, tru
 instance:town(homm3lua.TOWN_RANDOM,     {x=44, y=3, z=0}, homm3lua.OWNER_NEUTRAL)
 
 -- Sign
-instance:sign('Example...', {x=5, y=4, z=0})
-instance:sign('...text...', {x=6, y=4, z=0})
-instance:sign('...here!!!', {x=7, y=4, z=0})
+instance:sign('Example...', {x=4, y=4, z=0})
+instance:sign('...text...', {x=5, y=4, z=0})
+instance:sign('...here!!!', {x=6, y=4, z=0})
 
 -- Fun!
 instance:text('HELLO', {x=4, y=5,  z=0}, 'Pandora\'s Box')
