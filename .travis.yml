@@ -1,0 +1,27 @@
+language: c
+sudo: false
+
+env:
+  global:
+    - LUAC='-I env/include'
+    - LUAL='-lm'
+  matrix:
+    - LUA='lua 5.2'
+    - LUA='lua 5.3'
+    - LUA='luajit 2.1'
+
+git:
+    submodules: false
+
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
+  - pip install --user hererocks
+  - hererocks env --$LUA -rlatest
+  - source env/bin/activate
+
+install:
+  - make
+
+script:
+  - lua homm3luatest/init.lua

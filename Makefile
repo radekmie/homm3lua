@@ -4,8 +4,8 @@ INC := -I homm3tools/h3m/h3mlib -I homm3tools/3rdparty/uthash/src
 LIBDIR := homm3tools/OUTPUT/gcc
 STATICLIBS := $(LIBDIR)/h3mlib.a $(LIBDIR)/h3mtilespritegen.a
 
-LUAC := $(shell pkg-config --cflags lua53)
-LUAL := $(shell pkg-config --libs   lua53)
+LUAC ?= $(shell pkg-config --cflags lua)
+LUAL ?= $(shell pkg-config --libs   lua)
 
 CFLAGS := $(LUAC) -W -Wall -Wextra -O3 -fPIC -shared -std=c99 $(INC)
 LDLIBS := $(LUAL)

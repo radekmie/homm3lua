@@ -1,4 +1,4 @@
-## homm3lua
+## homm3lua <a href="https://travis-ci.org/radekmie/homm3lua"><img align="right" alt="Build Status" src="https://travis-ci.org/radekmie/homm3lua.svg"></a>
 
 Lua API for [homm3tools](https://github.com/potmdehex/homm3tools).
 

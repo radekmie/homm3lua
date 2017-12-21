@@ -50,7 +50,7 @@ instance:terrain(function (x, y, z)
     local scale = homm3lua.SIZE_EXTRALARGE
 
     local nx = x / scale * range
-    local ny = (scale // 2 - y) / (scale // 2)
+    local ny = (math.floor(scale / 2) - y) / math.floor(scale / 2)
     local ok = 1 / scale
 
     return math.min(math.floor((math.abs(ny - f(nx)) - ok) * 2), 2) + 7
