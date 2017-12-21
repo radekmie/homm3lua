@@ -54,7 +54,6 @@ void h3mlua_constants (lua_State *L) {
   constant("HERO_CIELE",             H3M_HERO_CIELE);
   constant("HERO_CLANCY",            H3M_HERO_CLANCY);
   constant("HERO_CLAVIUS",           H3M_HERO_CLAVIUS);
-  constant("HERO_CONFLUX",           H3M_HERO_CONFLUX);
   constant("HERO_CORONIUS",          H3M_HERO_CORONIUS);
   constant("HERO_CRAG_HACK",         H3M_HERO_CRAG_HACK);
   constant("HERO_CUTHBERT",          H3M_HERO_CUTHBERT);
@@ -62,7 +61,7 @@ void h3mlua_constants (lua_State *L) {
   constant("HERO_DACE",              H3M_HERO_DACE);
   constant("HERO_DAMACON",           H3M_HERO_DAMACON);
   constant("HERO_DAREMYTH",          H3M_HERO_DAREMYTH);
-  constant("HERO_DARKSTORN",         H3M_HERO_DARKSTORN);
+  constant("HERO_DARKSTORM",         H3M_HERO_DARKSTORM);
   constant("HERO_DEEMER",            H3M_HERO_DEEMER);
   constant("HERO_DESSA",             H3M_HERO_DESSA);
   // constant("HERO_DRACON",            H3M_HERO_DRACON);
@@ -103,6 +102,7 @@ void h3mlua_constants (lua_State *L) {
   constant("HERO_KORBAC",            H3M_HERO_KORBAC);
   constant("HERO_KRELLION",          H3M_HERO_KRELLION);
   constant("HERO_KYRRE",             H3M_HERO_KYRRE);
+  constant("HERO_LABETHA",           H3M_HERO_LABETHA);
   constant("HERO_LACUS",             H3M_HERO_LACUS);
   constant("HERO_LORD_HAART",        H3M_HERO_LORD_HAART);
   // constant("HERO_LORD_HAART2",       H3M_HERO_LORD_HAART2);
